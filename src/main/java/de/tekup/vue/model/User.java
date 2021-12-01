@@ -1,6 +1,7 @@
 package de.tekup.vue.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,13 @@ public class User {
 	private LocalDate dateOfBirth;
 	
 	private String email;
+	
+	public void setDate(String date) {
+		this.dateOfBirth = LocalDate.parse(date);
+	}
+	
+	public String getDate() {
+		return this.dateOfBirth.format(DateTimeFormatter.ISO_DATE);
+	}
 
 }
